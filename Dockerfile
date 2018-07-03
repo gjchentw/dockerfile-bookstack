@@ -5,7 +5,7 @@ ENV	APP="/bookstack" \
 
 RUN	apk --no-cache --no-progress upgrade -f && \
 	apk --no-cache --no-progress add git postfix \
-	php7-openssl php7-mbstring php7-tokenizer php7-gd php7-mysqlnd php7-tidy php7-simplexml php7-dom \
+	php7-openssl php7-mbstring php7-tokenizer php7-gd php7-mysqlnd php7-tidy php7-simplexml php7-dom php7-curl \
 	php7-fileinfo php7-xmlwriter php7-pdo_mysql php7-ldap && \
 	mkdir -p /var/spool/postfix/etc && \
 	echo nameserver 8.8.8.8 > /var/spool/postfix/etc/resolv.conf && \
