@@ -12,9 +12,9 @@ RUN	apt-get update -y && apt-get dist-upgrade -y && \
 	cp ${APP}/.env.example ${APP}/.env && \
 	chown -R nginx:nginx ${APP} && \
 	mkdir -p /.composer/cache/files/ && chmod -R 777 /.composer && \
-	cd ${APP} && sudo -u nginx -g nginx composer.phar install && \
+	cd ${APP} && sudo -E -u nginx -g nginx composer.phar install && \
 	chmod -R a+w ${APP}/storage ${APP}/bootstrap/cache/ ${APP}/public/uploads && \
-	sudo -u nginx -g nginx php artisan key:generate --force
+	sudo -E -u nginx -g nginx php artisan key:generate --force
 
 COPY	s6.d /etc/s6.d
 	
